@@ -27,7 +27,7 @@ nav a:hover {
     width: 100%;
     max-height: 750px;
     object-fit: cover;
-    
+
 }
 .logo {
     height: 50px;
@@ -40,4 +40,45 @@ nav a:hover {
     text-decoration: none;
     font-size: 30px;
     font-weight: bold;
+}
+.cats {
+    display: flex; /* Встановлює гнучке горизонтальне вирівнювання */
+    flex-wrap: wrap; /* Дозволяє перенос елементів у новий рядок */
+    gap: 15px; /* Відстань між елементами */
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 800px; /* Обмеження ширини контейнера */
+    margin: 0 auto; /* Центрування контейнера */
+}
+
+.cats ul {
+    display: flex; /* Перевизначає стандартну вертикальну поведінку ul */
+    flex-wrap: wrap; /* Дозволяє перенос на новий рядок */
+    padding: 0; /* Видаляє зайвий відступ ul */
+    margin: 0; /* Видаляє стандартний відступ ul */
+    list-style: none; /* Видаляє маркери списку */
+}
+
+.cats li {
+    margin: 0; /* Забезпечує рівномірне вирівнювання */
+}
+
+.cats a {
+    display: block; /* Дозволяє керувати шириною */
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: 500;
+    padding: 5px 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.cats a:hover {
+    color: #fff;
+    background-color: #007BFF;
+    border-color: #0056b3;
 }

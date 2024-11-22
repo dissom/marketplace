@@ -1,6 +1,13 @@
 <div class="logo">
     <a href="/">Marketplace</a>
 </div>
+<div class="cats">
+    <ul>
+        {% for cat in cats %}
+            <li><a href="/category/{{ cat.slug }}/">{{ cat.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
 <nav>
     <a href="/">Home</a>
     <a href="/about/">About</a>
