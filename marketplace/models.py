@@ -74,8 +74,12 @@ class Post(models.Model):
         verbose_name="Змінено",
     )
 
+    class Meta:
+        verbose_name = "Оголошення"
+        verbose_name_plural = "Оголошення"
+
     def __str__(self) -> str:
-        return self.name
+        return self.title
 
 
 class Message(models.Model):
