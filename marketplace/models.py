@@ -1,4 +1,6 @@
+import unidecode
 from django.db import models
+from django.utils.text import slugify
 from django.contrib.auth import get_user_model
 
 from marketplace.utils import custom_file_name
@@ -6,8 +8,15 @@ from marketplace.utils import custom_file_name
 
 class Category(models.Model):
     name = models.CharField(
-        verbose_name="Категорія",
+        verbose_name="Назва",
         max_length=50
+    )
+    slug = models.SlugField(
+        max_length=50,
+        unique=True,
+        db_index=True,
+        blank=True,
+        verbose_name="URL",
     )
     description = models.TextField(
         verbose_name="Опис категорії",
@@ -15,11 +24,20 @@ class Category(models.Model):
         null=True
     )
 
+    class Meta:
+        verbose_name="Категорія"
+        verbose_name_plural="Категорії"
+
     def __str__(self) -> str:
         return self.name
 
+    def save(self, *args, **kwargs) -> None:
+        if not self.slug:
+            self.slug = slugify(unidecode.unidecode(self.name))
+        return super().save(*args, **kwargs)
 
-class Product(models.Model):
+
+class Post(models.Model):
     title = models.CharField(max_length=50, verbose_name="Назва")
     description = models.TextField(verbose_name="Опис")
     price = models.DecimalField(
@@ -58,3 +76,25 @@ class Product(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+
+class Message(models.Model):
+    sender = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+        related_name="sent_messages",
+    )
+    receiver = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+        related_name="received_messages",
+    )
+    post = models.ForeignKey(
+        Post,
+        on_delete=models.CASCADE,
+        related_name="messages",
+        blank=True,
+        null=True,
+    )
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
