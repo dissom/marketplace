@@ -1,15 +1,18 @@
-<div class="logo">
-    <a href="/">Marketplace</a>
-</div>
-<div class="cats">
+<h1 class="logo">
+    <a href="{% url 'marketplace:index' %}">Marketplace</a>
+</h1>
+<aside class="cats">
     <ul>
         {% for cat in cats %}
-            <li><a href="/category/{{ cat.slug }}/">{{ cat.name }}</a></li>
+            <li><a href="{{ cat.get_absolute_url }}" >{{ cat.name }}</a></li>
         {% endfor %}
     </ul>
-</div>
-<nav>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/contact/">Contact</a>
+</aside>
+<nav class="main-nav" aria-label="Головна навігація">
+    <ul>
+        <li><a href="{% url 'marketplace:index' %}">Home</a></li>
+        <li><a href="{% url 'marketplace:about' %}">About</a></li>
+        <li><a href="{% url 'marketplace:contact' %}">Contact</a></li>
+        <li><a href="{% url 'marketplace:post_create' %}">Додати голошення</a></li>
+    </ul>
 </nav>

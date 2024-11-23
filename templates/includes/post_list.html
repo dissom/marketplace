@@ -1,0 +1,13 @@
+<ul class="post-list">
+  {% for post in posts %}
+    <li>
+      <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+      <p>{{ post.description|truncatechars:100 }}</p>
+      {% if post.image %}
+        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+      {% endif %}
+    </li>
+  {% empty %}
+    <li>Оголошення відсутні.</li>
+  {% endfor %}
+</ul>

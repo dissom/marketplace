@@ -11,24 +11,61 @@ header {
     justify-content: space-between;
     align-items: center;
 }
-nav a {
+
+/* main {
+    background-image: url("/static/images/homepage.webp");
+} */
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav li {
+    margin-right: 20px;
+}
+
+.main-nav a {
     color: white;
     text-decoration: none;
-    margin: 0 15px;
+    font-weight: bold;
 }
-nav a:hover {
-    text-decoration: underline;
-}
+
 .hero {
     text-align: center;
     margin-top: 2px;
 }
-.hero img {
+/* .hero img {
     width: 100%;
-    max-height: 750px;
+    height: 750px;
     object-fit: cover;
 
+} */
+
+.latest-posts {
+    margin-top: 40;
 }
+
+.post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.post-list li {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease;
+}
+
+.post-list li:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .logo {
     height: 50px;
     align-items: center;
@@ -46,8 +83,8 @@ nav a:hover {
     flex-wrap: wrap; /* Дозволяє перенос елементів у новий рядок */
     gap: 15px; /* Відстань між елементами */
     padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    background-color: #333;
+    /* border: 1px solid black; */
     border-radius: 5px;
     max-width: 800px; /* Обмеження ширини контейнера */
     margin: 0 auto; /* Центрування контейнера */

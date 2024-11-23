@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ category.name }}</h1>
+    <ul>
+
+        {% if posts %}
+            {% for post in posts %}
+                <li>
+                    <a href="#">{{ post.title }}</a>
+                    <br>
+                    {{ post.description }}
+                    <hr>
+                </li>
+            {% endfor %}
+        {% else %}
+            <p>Немає оголошень в даній категорії</p>
+        {% endif %}
+
+    </ul>
+{% endblock content %}

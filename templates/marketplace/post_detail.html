@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.description }}</p>
+    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+    <p>Категорія: {{ post.category.name }}</p>
+    <p>Продавець: {{ post.seller }}</p>
+    <p>Створено: {{ post.created_at }}</p>
+    <a href="{% url 'marketplace:index' %}">Назад до списку</a>
+{% endblock %}
